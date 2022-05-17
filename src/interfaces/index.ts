@@ -16,6 +16,8 @@ export interface CreatePetValidation {
   owner_id: string;
   name: string;
   birthday: Date;
+  type: string;
+  breed: string;
   //   attendance: Services[]
   // reports: Reports[]
 }

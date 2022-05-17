@@ -10,6 +10,8 @@ export const createPetSchema: SchemaOf<CreatePetValidation> = yup
     owner_id: yup.string().required("é obrigatório"),
     name: yup.string().required("é obrigatório"),
     birthday: yup.date().required("é obrigatório"),
+    breed: yup.string().required("é obrigatório"),
+    type: yup.string().required("é obrigatório"),
   });
 
 export const validatePetCreation = (schema: SchemaOf<CreatePetValidation>) => {
