@@ -11,6 +11,6 @@
 #.pnp.*
 /node_modules
 /dist
-.env
+# .env
 /.yarn
 .editorconfig
