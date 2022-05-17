@@ -7,8 +7,8 @@ import { CreateReportValidation } from "../../interfaces";
 export const createReportSchema: SchemaOf<CreateReportValidation> = yup
   .object()
   .shape({
-    pet_id: yup.string().required(),
-    report: yup.string().required(),
+    pet_id: yup.string().required("é obrigatório"),
+    report: yup.string().required("é obrigatório"),
   });
 
 export const validateReportCreation = (

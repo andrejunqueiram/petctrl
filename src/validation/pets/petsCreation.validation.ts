@@ -7,9 +7,9 @@ import { CreatePetValidation } from "../../interfaces";
 export const createPetSchema: SchemaOf<CreatePetValidation> = yup
   .object()
   .shape({
-    owner_id: yup.string().required(),
-    name: yup.string().required(),
-    birthday: yup.date().required(),
+    owner_id: yup.string().required("é obrigatório"),
+    name: yup.string().required("é obrigatório"),
+    birthday: yup.date().required("é obrigatório"),
   });
 
 export const validatePetCreation = (schema: SchemaOf<CreatePetValidation>) => {

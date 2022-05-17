@@ -7,9 +7,9 @@ import { CreateUserValidation } from "../../interfaces";
 export const createUserSchema: SchemaOf<CreateUserValidation> = yup
   .object()
   .shape({
-    name: yup.string().required(),
-    password: yup.string().required(),
-    isAdm: yup.boolean().required(),
+    name: yup.string().required("é obrigatório"),
+    password: yup.string().required("é obrigatório"),
+    isAdm: yup.boolean().required("é obrigatório"),
   });
 
 export const validateUserCreation = (

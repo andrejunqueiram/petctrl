@@ -7,9 +7,9 @@ import { CreateServiceValidation } from "../../interfaces";
 export const createServiceSchema: SchemaOf<CreateServiceValidation> = yup
   .object()
   .shape({
-    name: yup.string().required(),
-    category: yup.string().required(),
-    price: yup.number().required(),
+    name: yup.string().required("é obrigatório"),
+    category: yup.string().required("é obrigatório"),
+    price: yup.number().required("é obrigatório"),
   });
 
 export const validateServiceCreation = (

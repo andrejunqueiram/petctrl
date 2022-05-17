@@ -7,14 +7,14 @@ import { CreateOwnerValidation } from "../../interfaces";
 export const createOwnerSchema: SchemaOf<CreateOwnerValidation> = yup
   .object()
   .shape({
-    name: yup.string().required(),
+    name: yup.string().required("é obrigatório"),
     email: yup
       .string()
       .email("Invalid email")
-      .required()
+      .required("é obrigatório")
       .transform((value, originalValue) => originalValue.toLowerCase()),
-    address: yup.string().required(),
-    phone_number: yup.string().required(),
+    address: yup.string().required("é obrigatório"),
+    phone_number: yup.string().required("é obrigatório"),
   });
 
 export const validateOwnerCreation = (
