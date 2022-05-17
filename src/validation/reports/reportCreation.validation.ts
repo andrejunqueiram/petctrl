@@ -4,14 +4,14 @@ import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
 import { CreateReportValidation } from "../../interfaces";
 
-export const createOwnerSchema: SchemaOf<CreateReportValidation> = yup
+export const createReportSchema: SchemaOf<CreateReportValidation> = yup
   .object()
   .shape({
     pet_id: yup.string().required(),
     report: yup.string().required(),
   });
 
-export const validateOwnerCreation = (
+export const validateReportCreation = (
   schema: SchemaOf<CreateReportValidation>
 ) => {
   async (req: Request, res: Response, next: NextFunction) => {

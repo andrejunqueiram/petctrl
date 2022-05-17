@@ -4,7 +4,7 @@ import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
 import { CreatePetValidation } from "../../interfaces";
 
-export const createOwnerSchema: SchemaOf<CreatePetValidation> = yup
+export const createPetSchema: SchemaOf<CreatePetValidation> = yup
   .object()
   .shape({
     owner_id: yup.string().required(),
@@ -12,9 +12,7 @@ export const createOwnerSchema: SchemaOf<CreatePetValidation> = yup
     birthday: yup.date().required(),
   });
 
-export const validateOwnerCreation = (
-  schema: SchemaOf<CreatePetValidation>
-) => {
+export const validatePetCreation = (schema: SchemaOf<CreatePetValidation>) => {
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;

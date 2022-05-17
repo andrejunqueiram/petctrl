@@ -4,7 +4,7 @@ import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
 import { CreateServiceValidation } from "../../interfaces";
 
-export const createOwnerSchema: SchemaOf<CreateServiceValidation> = yup
+export const createServiceSchema: SchemaOf<CreateServiceValidation> = yup
   .object()
   .shape({
     name: yup.string().required(),
@@ -12,7 +12,7 @@ export const createOwnerSchema: SchemaOf<CreateServiceValidation> = yup
     price: yup.number().required(),
   });
 
-export const validateOwnerCreation = (
+export const validateServiceCreation = (
   schema: SchemaOf<CreateServiceValidation>
 ) => {
   async (req: Request, res: Response, next: NextFunction) => {
