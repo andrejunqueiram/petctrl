@@ -19,3 +19,8 @@ export interface CreatePetValidation {
   //   attendance: Services[]
   // reports: Reports[]
 }
+
+export interface CreateReportValidation {
+  pet_id: string;
+  report: string;
+}
