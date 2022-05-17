@@ -12,11 +12,10 @@ const app = express();
 
 app.use(express.json());
 
-app.use(ErrorMiddleware.execute);
-
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 app.use(routes);
+app.use(ErrorMiddleware);
 
 export default app;
