@@ -1,5 +1,8 @@
-import { Router } from "express";
+import { Express } from "express";
+import { petsRoutes } from "./pets.routes";
 
-const routes = Router();
 
-export default routes;
+export const routes = (app: Express) => {
+    app.use("/pets", petsRoutes())
+}
+ 

@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
 
+
 @Entity()
 export class Pet {
   @PrimaryColumn("uuid")
@@ -17,21 +18,21 @@ export class Pet {
   @Column()
   birthday: Date;
 
-//   @OneToMany((type) => Owners, {
-//     eager: true,
-//   })
-//   @JoinTable()
-//   owner_id: Owners[];
+  @OneToMany((type) => Owners, {
+    eager: true,
+  })
+  @JoinTable()
+  owner_id: string;
 
-    // @OneToMany((type) => Services, {
-    //     eager: true,
-    // })
-//   @JoinTable()
-//   attendance: Services[];
+    @OneToMany((type) => Services, {
+        eager: true,
+    })
+  @JoinTable()
+  attendance: Services[];
 
-    // @OneToMany((type) => Reports, {
-    //     eager: true,
-    // })
-//   @JoinTable()
-//   reports: Reports[];
+    @OneToMany((type) => Reports, {
+        eager: true,
+    })
+  @JoinTable()
+  reports: Reports[];
 }
