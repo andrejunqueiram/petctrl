@@ -10,3 +10,7 @@ export interface IServiceCreate {
   price: number;
   category: string;
 }
+
+export interface IServiceId {
+  id: string;
+}

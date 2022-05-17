@@ -6,7 +6,7 @@ export const AppDataSource =
     ? new DataSource({
         type: "sqlite",
         database: ":memory:",
-        entities: ["src/models/*.ts"],
+        entities: ["src/entities/*.ts"],
         synchronize: true,
       })
     : new DataSource({
@@ -21,8 +21,8 @@ export const AppDataSource =
             : false,
         entities:
           process.env.NODE_ENV === "production"
-            ? ["dist/src/models/*.js"]
-            : ["src/models/*.ts"],
+            ? ["dist/src/entities/*.js"]
+            : ["src/entities/*.ts"],
         migrations:
           process.env.NODE_ENV === "production"
             ? ["dist/src/migrations/*.js"]

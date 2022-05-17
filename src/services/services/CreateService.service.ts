@@ -16,12 +16,12 @@ const createServiceService = async ({
     throw new AppError("Serviço já cadastrado.");
   }
 
-  const service = new Service();
-  service.name = name;
-  service.price = price;
-  service.category = category;
+  const service = serviceRepository.create({
+    name,
+    price,
+    category,
+  });
 
-  serviceRepository.create(service);
   await serviceRepository.save(service);
 
   return service;
