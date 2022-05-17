@@ -11,3 +11,11 @@ export interface CreateOwnerValidation {
   phone_number: string;
   // pets: Pets[]
 }
+
+export interface CreatePetValidation {
+  owner_id: string;
+  name: string;
+  birthday: Date;
+  //   attendance: Services[]
+  // reports: Reports[]
+}
