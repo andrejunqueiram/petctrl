@@ -3,6 +3,7 @@ import {
   CreateOwnerValidation,
   CreatePetValidation,
   CreateReportValidation,
+  CreateServiceValidation,
   CreateUserValidation,
 } from "../../src/interfaces";
 
@@ -13,6 +14,7 @@ declare global {
       validOwner: CreateOwnerValidation;
       validPet: CreatePetValidation;
       validReport: CreateReportValidation;
+      validService: CreateServiceValidation;
     }
   }
 }

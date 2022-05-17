@@ -24,3 +24,9 @@ export interface CreateReportValidation {
   pet_id: string;
   report: string;
 }
+
+export interface CreateServiceValidation {
+  name: string;
+  price: number;
+  category: string;
+}
