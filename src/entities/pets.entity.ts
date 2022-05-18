@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
+import Service from "./Services";
 
 
 @Entity()
@@ -18,21 +19,22 @@ export class Pet {
   @Column()
   birthday: Date;
 
-  @OneToMany((type) => Owners, {
+  @OneToMany((type) => Service, {
     eager: true,
   })
   @JoinTable()
-  owner_id: string;
+  attendance: Service[];
 
-    @OneToMany((type) => Services, {
-        eager: true,
-    })
-  @JoinTable()
-  attendance: Services[];
 
-    @OneToMany((type) => Reports, {
-        eager: true,
-    })
-  @JoinTable()
-  reports: Reports[];
+  // @OneToMany((type) => Owners, {
+  //   eager: true,
+  // })
+  // @JoinTable()
+  // owner_id: string;
+
+//     @OneToMany((type) => Reports, {
+//         eager: true,
+//     })
+//   @JoinTable()
+//   reports: Reports[];
 }

@@ -1,14 +1,12 @@
 import { Router } from "express";
 import PetsController from "../controllers/pets.controller";
 
-const routes = Router();
+const petsRouter = Router();
 
-export const petsRoutes = () => {
-  routes.post("/pets", PetsController.store);
-  routes.get("/pets", PetsController.index);
-  routes.get("/pets/:id", PetsController.show);
-  routes.patch("/pets/:id", PetsController.update);
-  routes.delete("/pets/:id", PetsController.delete);
+  petsRouter.post("/pets", PetsController.store);
+  petsRouter.get("/pets", PetsController.index);
+  petsRouter.get("/pets/:id", PetsController.show);
+  petsRouter.patch("/pets/:id", PetsController.update);
+  petsRouter.delete("/pets/:id", PetsController.delete);
 
-  return routes;
-};
+  export default petsRouter;

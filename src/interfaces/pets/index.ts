@@ -15,3 +15,10 @@ export interface IPetCreate {
     breed: string;
     birthday: Date; 
 }
+
+export interface IPetUpdate {
+  id: string; 
+  name: string;
+  breed: string; 
+  birthday: Date;
+}
