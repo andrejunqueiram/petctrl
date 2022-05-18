@@ -1,15 +1,15 @@
-export interface IUserCreate {
+export interface IUserSession {
   name: string;
   password: string;
+}
+export interface IUserCreate extends IUserSession {
   isAdm: boolean;
 }
 
-export interface IUser {
+export interface IUser extends IUserCreate {
   id: string;
-  name: string;
-  password: string;
-  isAdm: boolean;
 }
+
 export interface IUserID {
   id: string;
 }
