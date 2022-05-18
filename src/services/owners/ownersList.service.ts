@@ -1,5 +1,5 @@
-import { AppDataSource } from '../data-source';
-import { Owner } from '../entities/owners.entity';
+import { AppDataSource } from '../../data-source';
+import { Owner } from '../../entities/owners.entity';
 
 export const ownerListService = async () => {
   const userRepository = AppDataSource.getRepository(Owner);

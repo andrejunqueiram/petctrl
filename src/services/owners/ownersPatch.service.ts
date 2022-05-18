@@ -1,6 +1,6 @@
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../../data-source";
 
-import { Owner } from "../entities/owners.entity";
+import { Owner } from "../../entities/owners.entity";
 
 export const ownerUpdateService = async (
     id: string,

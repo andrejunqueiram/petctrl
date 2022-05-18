@@ -1,6 +1,6 @@
-import { Owner } from "../entities/owners.entity";
+import { Owner } from "../../entities/owners.entity";
 
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../../data-source";
 
 export const ownerDeleteService = async (id: string) => {
     const ownerRepository = AppDataSource.getRepository(Owner);
