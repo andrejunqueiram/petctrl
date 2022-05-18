@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
 
-@Entity()
+@Entity("owner")
 export class Owner {
   @PrimaryColumn("uuid")
   readonly id: string;
