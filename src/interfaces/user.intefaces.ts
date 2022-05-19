@@ -2,6 +2,7 @@ export interface IUserSession {
   name: string;
   password: string;
 }
+
 export interface IUserCreate extends IUserSession {
   isAdm: boolean;
 }

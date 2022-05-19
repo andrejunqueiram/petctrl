@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { IReport } from "../interfaces/reports.interfaces";
-import reportsCreateService from "../services/reports/reportsCreate.services";
-import reportsListServices from "../services/reports/reportsList.services";
-import reportsUpdateServices from "../services/reports/reportsUpdate.services";
-import reportsDeleteService from "../services/reports/reportsDelete.services";
+import reportsCreateService from "../services/reports/reportsCreate.service";
+import reportsListServices from "../services/reports/reportsList.service";
+import reportsUpdateServices from "../services/reports/reportsUpdate.service";
+import reportsDeleteService from "../services/reports/reportsDelete.service";
 
 export default class ReportsController {
   static async store(req: Request, res: Response) {

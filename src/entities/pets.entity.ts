@@ -1,15 +1,6 @@
-import {
-  Entity,
-  Column,
-  PrimaryColumn,
-  JoinTable,
-  OneToMany,
-  ManyToMany,
-  ManyToOne,
-} from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToMany, ManyToOne } from "typeorm";
 import { Owner } from "./owners.entity";
 import { Reports } from "./reports.entity";
-import Service from "./services.entity";
 
 @Entity("pets")
 export class Pet {
