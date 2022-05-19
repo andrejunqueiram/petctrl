@@ -7,7 +7,7 @@ export class createOwnerTable1652907278201 implements MigrationInterface {
         
             await queryRunner.createTable(
               new Table({
-                name: "owner",
+                name: "owners",
                 columns: [
                   {
                     name: "id",

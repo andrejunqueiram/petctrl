@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  JoinTable,
+  OneToMany,
+  ManyToOne,
+} from "typeorm";
+import { Pet } from "./pets.entity";
 
 @Entity()
 export class Reports {
@@ -8,6 +16,6 @@ export class Reports {
   @Column({ nullable: true })
   reports: string;
 
-  @Column()
-  pet_id: string;
+  @ManyToOne((type) => Pet, (pet) => pet.reports)
+  pet: Pet;
 }

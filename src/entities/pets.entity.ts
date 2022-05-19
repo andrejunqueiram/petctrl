@@ -5,7 +5,10 @@ import {
   JoinTable,
   OneToMany,
   ManyToMany,
+  ManyToOne,
 } from "typeorm";
+import { Owner } from "./owners.entity";
+import { Reports } from "./reports.entity";
 import Service from "./services.entity";
 
 @Entity("pets")
@@ -25,21 +28,11 @@ export class Pet {
   @Column()
   birthday: Date;
 
-  @ManyToMany((type) => Service, (service) => service.id, {
+  @ManyToOne((type) => Owner, (owner) => owner.pets)
+  owner: Owner;
+
+  @OneToMany((type) => Reports, (report) => report.pet, {
     eager: true,
   })
-  @JoinTable()
-  attendance: Service[];
-
-  // @OneToMany((type) => Owners, {
-  //   eager: true,
-  // })
-  // @JoinTable()
-  // owner_id: string;
-
-  //     @OneToMany((type) => Reports, {
-  //         eager: true,
-  //     })
-  //   @JoinTable()
-  //   reports: Reports[];
+  reports: Reports[];
 }

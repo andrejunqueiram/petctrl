@@ -17,8 +17,7 @@ export class createReportsTable1652876403349 implements MigrationInterface {
           },
           {
             name: "pet_id",
-            type: "varchar",
-            length: "255",
+            type: "uuid",
           },
           {
             name: "reports",

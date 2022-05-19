@@ -21,6 +21,10 @@ export class petsMigration1652814786165 implements MigrationInterface {
             length: "255",
           },
           {
+            name: "owner_id",
+            type: "uuid",
+          },
+          {
             name: "type",
             type: "varchar",
             length: "50",
