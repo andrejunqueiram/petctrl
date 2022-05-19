@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
+import { Pet } from "./pets.entity";
 
 @Entity("owner")
 export class Owner {
@@ -17,6 +18,8 @@ export class Owner {
   @Column()
   phone_number: string;
 
-  @Column()
-  pets: string;
+  @OneToMany((type) => Pet, (pet) => pet.owner, {
+    eager: true,
+  })
+  pets: Pet[];
 }
