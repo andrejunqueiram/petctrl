@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
-import Service from "../../entities/Services";
+import Service from "../../entities/services.entity";
 import AppError from "../../errors/AppError";
-import { IService } from "../../interfaces/Services.interfaces";
+import { IService } from "../../interfaces/services.interfaces";
 
 const updateServiceService = async ({
   id,
@@ -21,7 +21,9 @@ const updateServiceService = async ({
   price ? (service.price = price) : service.price;
   category ? (service.category = category) : service.category;
 
-  return serviceRepository.save(service);
+  await serviceRepository.save(service);
+
+  return service;
 };
 
 export default updateServiceService;

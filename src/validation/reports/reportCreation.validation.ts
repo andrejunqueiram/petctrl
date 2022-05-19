@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { IReportCreate } from "../../interfaces/reports";
+import { IReportCreate } from "../../interfaces/reports.interfaces";
 
 export const createReportSchema: SchemaOf<IReportCreate> = yup.object().shape({
   pet_id: yup.string().required("id do pet é obrigatório"),

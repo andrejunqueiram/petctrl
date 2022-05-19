@@ -1,6 +1,6 @@
-import { Reports } from "../../entities/reports.entities";
+import { Reports } from "../../entities/reports.entity";
 import { AppDataSource } from "../../data-source";
-import { IReport } from "../../interfaces/reports";
+import { IReport } from "../../interfaces/reports.interfaces";
 import AppError from "../../errors/AppError";
 
 const reportsUpdateServices = async ({ id, pet_id, reports }: IReport) => {

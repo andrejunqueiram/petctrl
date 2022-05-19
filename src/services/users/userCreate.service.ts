@@ -1,8 +1,8 @@
 import { hash } from "bcryptjs";
 import { AppDataSource } from "../../data-source";
-import { User } from "../../entities/user.entity";
+import { User } from "../../entities/users.entity";
 import AppError from "../../errors/AppError";
-import { IUser, IUserCreate } from "../../interfaces/user.inteface";
+import { IUser, IUserCreate } from "../../interfaces/user.intefaces";
 
 const createUserService = async ({ name, password, isAdm }: IUserCreate) => {
   const userRepository = AppDataSource.getRepository(User);
@@ -14,7 +14,13 @@ const createUserService = async ({ name, password, isAdm }: IUserCreate) => {
 
   const hashedPassword = await hash(password, 8);
 
-  const user = userRepository.create({ name, password: hashedPassword, isAdm });
+  const user = new User();
+
+  user.name = name;
+  user.password = hashedPassword;
+  user.isAdm = isAdm;
+
+  userRepository.create(user);
 
   await userRepository.save(user);
 

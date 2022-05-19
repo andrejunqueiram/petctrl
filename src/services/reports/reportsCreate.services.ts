@@ -1,6 +1,6 @@
-import { Reports } from "../../entities/reports.entities";
+import { Reports } from "../../entities/reports.entity";
 import { AppDataSource } from "../../data-source";
-import { IReportCreate } from "../../interfaces/reports";
+import { IReportCreate } from "../../interfaces/reports.interfaces";
 
 const reportsCreateService = async ({ reports, pet_id }: IReportCreate) => {
   const reportsRepository = AppDataSource.getRepository(Reports);
@@ -10,7 +10,7 @@ const reportsCreateService = async ({ reports, pet_id }: IReportCreate) => {
 
   reportsRepository.create(data);
   await reportsRepository.save(data);
-  console.log("entrou no service");
+
   return data;
 };
 

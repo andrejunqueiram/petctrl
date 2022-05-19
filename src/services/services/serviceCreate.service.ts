@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
-import Service from "../../entities/Services";
+import Service from "../../entities/services.entity";
 import AppError from "../../errors/AppError";
-import { IServiceCreate } from "../../interfaces/Services.interfaces";
+import { IServiceCreate } from "../../interfaces/services.interfaces";
 
 const createServiceService = async ({
   name,
@@ -16,11 +16,12 @@ const createServiceService = async ({
     throw new AppError("Serviço já cadastrado.");
   }
 
-  const service = serviceRepository.create({
-    name,
-    price,
-    category,
-  });
+  const service = new Service();
+  service.name = name;
+  service.price = price;
+  service.category = category;
+
+  serviceRepository.create(service);
 
   await serviceRepository.save(service);
 
