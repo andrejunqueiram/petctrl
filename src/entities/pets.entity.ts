@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, JoinTable, OneToMany, ManyToMany } from "typeorm";
 import Service from "./Services";
 
 
@@ -19,7 +19,7 @@ export class Pet {
   @Column()
   birthday: Date;
 
-  @OneToMany((type) => Service, {
+  @ManyToMany((type) => Service, (service) => service.id, {
     eager: true,
   })
   @JoinTable()
