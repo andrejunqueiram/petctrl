@@ -2,24 +2,20 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { CreateOwnerValidation } from "../../interfaces";
+import { IOwnerCreate } from "../../interfaces/owners";
 
-export const createOwnerSchema: SchemaOf<CreateOwnerValidation> = yup
-  .object()
-  .shape({
-    name: yup.string().required("é obrigatório"),
-    email: yup
-      .string()
-      .email("Invalid email")
-      .required("é obrigatório")
-      .transform((value, originalValue) => originalValue.toLowerCase()),
-    address: yup.string().required("é obrigatório"),
-    phone_number: yup.string().required("é obrigatório"),
-  });
+export const createOwnerSchema: SchemaOf<IOwnerCreate> = yup.object().shape({
+  name: yup.string().required("nome é obrigatório"),
+  email: yup
+    .string()
+    .email("email inválido")
+    .required("email é obrigatório")
+    .transform((value, originalValue) => originalValue.toLowerCase()),
+  address: yup.string().required("endereço é obrigatório"),
+  phone_number: yup.string().required("telefone é obrigatório"),
+});
 
-export const validateOwnerCreation = (
-  schema: SchemaOf<CreateOwnerValidation>
-) => {
+export const validateOwnerCreation = (schema: SchemaOf<IOwnerCreate>) => {
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;

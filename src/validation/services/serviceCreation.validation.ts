@@ -2,19 +2,17 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { CreateServiceValidation } from "../../interfaces";
+import { IServiceCreate } from "../../interfaces/Services.interfaces";
 
-export const createServiceSchema: SchemaOf<CreateServiceValidation> = yup
+export const createServiceSchema: SchemaOf<IServiceCreate> = yup
   .object()
   .shape({
-    name: yup.string().required("é obrigatório"),
-    category: yup.string().required("é obrigatório"),
-    price: yup.number().required("é obrigatório"),
+    name: yup.string().required("nome é obrigatório"),
+    category: yup.string().required("categoria é obrigatório"),
+    price: yup.number().required("preço é obrigatório"),
   });
 
-export const validateServiceCreation = (
-  schema: SchemaOf<CreateServiceValidation>
-) => {
+export const validateServiceCreation = (schema: SchemaOf<IServiceCreate>) => {
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;

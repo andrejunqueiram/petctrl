@@ -2,18 +2,14 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { CreateReportValidation } from "../../interfaces";
+import { IReportCreate } from "../../interfaces/reports";
 
-export const createReportSchema: SchemaOf<CreateReportValidation> = yup
-  .object()
-  .shape({
-    pet_id: yup.string().required("é obrigatório"),
-    report: yup.string().required("é obrigatório"),
-  });
+export const createReportSchema: SchemaOf<IReportCreate> = yup.object().shape({
+  pet_id: yup.string().required("id do pet é obrigatório"),
+  reports: yup.string().required("descrição do laudo é obrigatório"),
+});
 
-export const validateReportCreation = (
-  schema: SchemaOf<CreateReportValidation>
-) => {
+export const validateReportCreation = (schema: SchemaOf<IReportCreate>) => {
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;

@@ -2,19 +2,15 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { CreateUserValidation } from "../../interfaces";
+import { IUserCreate } from "../../interfaces/user.inteface";
 
-export const createUserSchema: SchemaOf<CreateUserValidation> = yup
-  .object()
-  .shape({
-    name: yup.string().required("é obrigatório"),
-    password: yup.string().required("é obrigatório"),
-    isAdm: yup.boolean().required("é obrigatório"),
-  });
+export const createUserSchema: SchemaOf<IUserCreate> = yup.object().shape({
+  name: yup.string().required("nome é obrigatório"),
+  password: yup.string().required("senha é obrigatório"),
+  isAdm: yup.boolean().required("verificação de cargo é obrigatório"),
+});
 
-export const validateUserCreation = (
-  schema: SchemaOf<CreateUserValidation>
-) => {
+export const validateUserCreation = (schema: SchemaOf<IUserCreate>) => {
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;

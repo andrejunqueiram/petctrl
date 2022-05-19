@@ -1,20 +1,18 @@
 import * as express from "express";
-import {
-  CreateOwnerValidation,
-  CreatePetValidation,
-  CreateReportValidation,
-  CreateServiceValidation,
-  CreateUserValidation,
-} from "../../src/interfaces";
+import { IOwnerCreate } from "../../src/interfaces/owners";
+import { IPetCreate } from "../../src/interfaces/pets";
+import { IReportCreate } from "../../src/interfaces/reports";
+import { IServiceCreate } from "../../src/interfaces/Services.interfaces";
+import { IUserCreate } from "../../src/interfaces/user.inteface";
 
 declare global {
   namespace Express {
     interface Request {
-      validUser: CreateUserValidation;
-      validOwner: CreateOwnerValidation;
-      validPet: CreatePetValidation;
-      validReport: CreateReportValidation;
-      validService: CreateServiceValidation;
+      validUser: IUserCreate;
+      validOwner: IOwnerCreate;
+      validPet: IPetCreate;
+      validReport: IReportCreate;
+      validService: IServiceCreate;
     }
   }
 }
