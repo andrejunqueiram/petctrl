@@ -4,8 +4,7 @@ import "express-async-errors";
 import "dotenv/config";
 import ErrorMiddleware from "./middlewares/error.middleware";
 
-import { routes } from "./routes";
-// import AppError from "./errors/AppError";
+import routes from "./routes";
 
 const app = express();
 
