@@ -14,3 +14,5 @@ const petServicesDeleteService = async (id: string) => {
 
   return true;
 };
+
+export default petServicesDeleteService;
