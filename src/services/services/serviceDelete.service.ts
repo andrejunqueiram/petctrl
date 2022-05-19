@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
-import Service from "../../entities/Services";
+import Service from "../../entities/services.entity";
 import AppError from "../../errors/AppError";
-import { IServiceId } from "../../interfaces/Services.interfaces";
+import { IServiceId } from "../../interfaces/services.interfaces";
 
 const deleteServiceService = async ({ id }: IServiceId) => {
   const serviceRepository = AppDataSource.getRepository(Service);

@@ -1,8 +1,8 @@
 import { string } from "yup";
 import { AppDataSource } from "../../data-source";
-import { User } from "../../entities/user.entity";
+import { User } from "../../entities/users.entity";
 import AppError from "../../errors/AppError";
-import { IUserID } from "../../interfaces/user.inteface";
+import { IUserID } from "../../interfaces/user.intefaces";
 
 const deleteUserService = async ({ id }: IUserID) => {
   const userRepository = AppDataSource.getRepository(User);
@@ -14,7 +14,7 @@ const deleteUserService = async ({ id }: IUserID) => {
 
   await userRepository.delete({ id });
 
-  return "Usuário deletado com sucesso!";
+  return true;
 };
 
 export default deleteUserService;

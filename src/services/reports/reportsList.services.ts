@@ -1,5 +1,5 @@
 import { AppDataSource } from "../../data-source";
-import { Reports } from "../../entities/reports.entities";
+import { Reports } from "../../entities/reports.entity";
 import AppError from "../../errors/AppError";
 
 const reportsListServices = async () => {

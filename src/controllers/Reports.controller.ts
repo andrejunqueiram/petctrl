@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IReport } from "../interfaces/reports";
+import { IReport } from "../interfaces/reports.interfaces";
 import reportsCreateService from "../services/reports/reportsCreate.services";
 import reportsListServices from "../services/reports/reportsList.services";
 import reportsUpdateServices from "../services/reports/reportsUpdate.services";
@@ -20,7 +20,7 @@ export default class ReportsController {
   static async index(req: Request, res: Response) {
     const petsList: IReport[] = await reportsListServices();
 
-    return res.status(200).json(petsList);
+    return res.json(petsList);
   }
 
   static async update(req: Request, res: Response) {
@@ -39,6 +39,6 @@ export default class ReportsController {
   static async delete(req: Request, res: Response) {
     const { id } = req.params;
     await reportsDeleteService({ id });
-    return res.status(204).json();
+    return res.status(204);
   }
 }

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { IServiceCreate } from "../../interfaces/Services.interfaces";
+import { IServiceCreate } from "../../interfaces/services.interfaces";
 
 export const createServiceSchema: SchemaOf<IServiceCreate> = yup
   .object()

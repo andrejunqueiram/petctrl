@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
-import { v4 as uuid } from "uuid";
 
 @Entity()
 export class Reports {
@@ -11,10 +10,4 @@ export class Reports {
 
   @Column()
   pet_id: string;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }

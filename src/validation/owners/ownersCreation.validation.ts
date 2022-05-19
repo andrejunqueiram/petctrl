@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { IOwnerCreate } from "../../interfaces/owners";
+import { IOwnerCreate } from "../../interfaces/owners.interfaces";
 
 export const createOwnerSchema: SchemaOf<IOwnerCreate> = yup.object().shape({
   name: yup.string().required("nome é obrigatório"),

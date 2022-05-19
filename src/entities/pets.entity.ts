@@ -1,8 +1,14 @@
-import { Entity, Column, PrimaryColumn, JoinTable, OneToMany, ManyToMany } from "typeorm";
-import Service from "./Services";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  JoinTable,
+  OneToMany,
+  ManyToMany,
+} from "typeorm";
+import Service from "./services.entity";
 
-
-@Entity()
+@Entity("pets")
 export class Pet {
   @PrimaryColumn("uuid")
   readonly id: string;
@@ -25,16 +31,15 @@ export class Pet {
   @JoinTable()
   attendance: Service[];
 
-
   // @OneToMany((type) => Owners, {
   //   eager: true,
   // })
   // @JoinTable()
   // owner_id: string;
 
-//     @OneToMany((type) => Reports, {
-//         eager: true,
-//     })
-//   @JoinTable()
-//   reports: Reports[];
+  //     @OneToMany((type) => Reports, {
+  //         eager: true,
+  //     })
+  //   @JoinTable()
+  //   reports: Reports[];
 }

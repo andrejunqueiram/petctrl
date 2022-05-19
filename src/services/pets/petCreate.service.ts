@@ -1,6 +1,6 @@
 import { Pet } from "../../entities/pets.entity";
 import { AppDataSource } from "../../data-source";
-import { IPetCreate } from "../../interfaces/pets";
+import { IPetCreate } from "../../interfaces/pets.interfaces";
 
 const petCreateService = async ({
   name,

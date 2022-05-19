@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import createUserService from "../services/users/createUser.service";
-import deleteUserService from "../services/users/deleteUser.service";
-import listUsersService from "../services/users/listUsers.service";
-import updateUserService from "../services/users/updateUser.service";
+import createUserService from "../services/users/userCreate.service";
+import deleteUserService from "../services/users/userDelete.service";
+import listUsersService from "../services/users/userList.service";
+import updateUserService from "../services/users/userUpdate.service";
 export default class UserController {
   static async store(req: Request, res: Response) {
     const { name, password, isAdm } = req.body;
@@ -29,6 +29,6 @@ export default class UserController {
 
     const deleteUser = await deleteUserService({ id });
 
-    return res.json(deleteUser);
+    return res.status(204);
   }
 }

@@ -1,7 +1,7 @@
 import { AppDataSource } from "../../data-source";
 import { Pet } from "../../entities/pets.entity";
 import AppError from "../../errors/AppError";
-import { IPetUpdate } from "../../interfaces/pets";
+import { IPetUpdate } from "../../interfaces/pets.interfaces";
 
 const petUpdateService = async ({ id, name, breed, birthday }: IPetUpdate) => {
   const petRepository = AppDataSource.getRepository(Pet);

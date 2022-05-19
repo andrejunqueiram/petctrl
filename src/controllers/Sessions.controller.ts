@@ -6,6 +6,6 @@ export default class SessionController {
 
     const authUser = await authService({ name, password });
 
-    return res.json(authUser);
+    return res.status(201).json(authUser);
   }
 }

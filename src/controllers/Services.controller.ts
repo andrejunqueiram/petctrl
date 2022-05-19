@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import Service from "../entities/Services";
-import createServiceService from "../services/services/CreateService.service";
-import deleteServiceService from "../services/services/DeleteService.service";
-import updateServiceService from "../services/services/UpdateService.service";
+import Service from "../entities/services.entity";
+import createServiceService from "../services/services/serviceCreate.service";
+import deleteServiceService from "../services/services/serviceDelete.service";
+import updateServiceService from "../services/services/serviceUpdate.service";
 
 export default class ServicesController {
   static async store(req: Request, res: Response) {
@@ -11,7 +11,7 @@ export default class ServicesController {
 
     const service = await createServiceService({ name, price, category });
 
-    return res.json(service);
+    return res.status(201).json(service);
   }
 
   static async index(req: Request, res: Response) {
@@ -41,6 +41,6 @@ export default class ServicesController {
 
     await deleteServiceService({ id });
 
-    return res.status(204).json();
+    return res.status(204);
   }
 }

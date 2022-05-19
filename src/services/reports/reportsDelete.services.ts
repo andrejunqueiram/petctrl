@@ -1,6 +1,6 @@
-import { Reports } from "../../entities/reports.entities";
+import { Reports } from "../../entities/reports.entity";
 import { AppDataSource } from "../../data-source";
-import { IReportId } from "../../interfaces/reports";
+import { IReportId } from "../../interfaces/reports.interfaces";
 import AppError from "../../errors/AppError";
 
 const reportsDeleteService = async ({ id }: IReportId) => {
@@ -11,7 +11,9 @@ const reportsDeleteService = async ({ id }: IReportId) => {
     throw new AppError("Nenhum relatorio com esse id");
   }
 
-  return await reportsRepository.delete(id);
+  await reportsRepository.delete(id);
+
+  return true;
 };
 
 export default reportsDeleteService;
