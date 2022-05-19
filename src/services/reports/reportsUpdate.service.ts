@@ -9,7 +9,6 @@ const reportsUpdateServices = async ({ id, pet_id, reports }: IReport) => {
   if (!data) {
     throw new AppError("Nenhum relatorio com esse id");
   }
-  pet_id ? (data.pet_id = pet_id) : data.pet_id;
   reports ? (data.reports = reports) : data.reports;
 
   return reportsRepository.save(data);
