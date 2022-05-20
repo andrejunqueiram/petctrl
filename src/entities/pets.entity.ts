@@ -1,15 +1,7 @@
-import {
-  Entity,
-  Column,
-  PrimaryColumn,
-  JoinTable,
-  OneToMany,
-  ManyToMany,
-  ManyToOne,
-} from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToMany, ManyToOne } from "typeorm";
 import { Owner } from "./owners.entity";
 import { Reports } from "./reports.entity";
-import Service from "./services.entity";
+import { ServiceList } from "./service_list.entity";
 
 @Entity("pets")
 export class Pet {
@@ -30,6 +22,11 @@ export class Pet {
 
   @ManyToOne((type) => Owner, (owner) => owner.pets)
   owner: Owner;
+
+  @OneToMany((type) => ServiceList, (service_list) => service_list.pet, {
+    eager: true,
+  })
+  service_list: ServiceList[];
 
   @OneToMany((type) => Reports, (report) => report.pet, {
     eager: true,

@@ -6,12 +6,14 @@ import userRoutes from "./users.routes";
 import serviceRouter from "./services.routes";
 import petsRouter from "./pets.routes";
 import ownerRoutes from "./owners.routes";
+import serviceListRouter from "./service_list.routes";
 
 const routes = Router();
 
 routes.use("/reports", reportsRouter);
 routes.use("/services", serviceRouter);
 routes.use("/pets", petsRouter);
+routes.use("/servicelist", serviceListRouter);
 routes.use("/users", userRoutes);
 routes.use("/session", sessionRoutes);
 routes.use("/owners", ownerRoutes);

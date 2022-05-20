@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import Service from "../entities/services.entity";
+import { Service } from "../entities/services.entity";
 import createServiceService from "../services/services/serviceCreate.service";
 import deleteServiceService from "../services/services/serviceDelete.service";
 import updateServiceService from "../services/services/serviceUpdate.service";

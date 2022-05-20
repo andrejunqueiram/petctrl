@@ -1,5 +1,5 @@
 import { AppDataSource } from "../../data-source";
-import Service from "../../entities/services.entity";
+import { Service } from "../../entities/services.entity";
 import AppError from "../../errors/AppError";
 import { IServiceId } from "../../interfaces/services.interfaces";
 

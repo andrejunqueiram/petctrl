@@ -1,4 +1,4 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import petCreateService from "../services/pets/petCreate.service";
 import petsListService from "../services/pets/petsList.service";
 import petListService from "../services/pets/petList.service";
@@ -45,6 +45,6 @@ export default class PetsController {
     const { id } = req.params;
     const deletePet = await petDeleteService(id);
 
-    return response.status(204);
+    return res.status(204);
   }
 }

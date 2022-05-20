@@ -1,11 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryColumn,
-  JoinTable,
-  OneToMany,
-  ManyToOne,
-} from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
 import { Pet } from "./pets.entity";
 
 @Entity()

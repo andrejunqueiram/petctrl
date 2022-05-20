@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("services")
-class Service {
+export class Service {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -14,5 +14,3 @@ class Service {
   @Column()
   category: string;
 }
-
-export default Service;

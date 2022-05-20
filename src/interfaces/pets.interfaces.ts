@@ -4,21 +4,21 @@ export interface IPet {
   name: string;
   birthday: Date;
   breed: string;
-  attendance: Array<object>;
+  pet_services: Array<object>;
   reports: Array<object>;
 }
 
 export interface IPetCreate {
-    owner_id: string;
-    name: string;
-    type: string;
-    breed: string;
-    birthday: Date; 
+  owner_id: string;
+  name: string;
+  type: string;
+  breed: string;
+  birthday: Date;
 }
 
 export interface IPetUpdate {
-  id: string; 
+  id: string;
   name: string;
-  breed: string; 
+  breed: string;
   birthday: Date;
 }
