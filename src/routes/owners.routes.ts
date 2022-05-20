@@ -4,9 +4,9 @@ import OwnersController from "../controllers/Owners.controller";
 
 const ownerRoutes = Router();
 
-ownerRoutes.post("/owners", OwnersController.store);
-ownerRoutes.get("/owners", OwnersController.index);
-ownerRoutes.patch("/owners/:id", OwnersController.update);
-ownerRoutes.delete("/owners/:id", OwnersController.delete);
+ownerRoutes.post("/", OwnersController.store);
+ownerRoutes.get("/", OwnersController.index);
+ownerRoutes.patch("/:id", OwnersController.update);
+ownerRoutes.delete("/:id", OwnersController.delete);
 
 export default ownerRoutes;

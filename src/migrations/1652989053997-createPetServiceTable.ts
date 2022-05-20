@@ -19,6 +19,11 @@ export class createPetServiceTable1652989053997 implements MigrationInterface {
             name: "pet_id",
             type: "uuid",
           },
+          {
+            name: "service_date",
+            type: "timestamp",
+            default: "now()",
+          },
         ],
       })
     );
