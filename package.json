@@ -5,7 +5,9 @@
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "test": "jest",
-    "runMig": "typeorm-ts-node-commonjs migration:run -d src/data-source.ts"
+    "runMig": "typeorm-ts-node-commonjs migration:run -d src/data-source.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
