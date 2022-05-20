@@ -1,11 +1,19 @@
-import { Entity, Column, PrimaryColumn, OneToMany, ManyToOne } from "typeorm";
+import { Exclude } from "class-transformer";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  OneToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Owner } from "./owners.entity";
 import { Reports } from "./reports.entity";
 import { ServiceList } from "./service_list.entity";
 
 @Entity("pets")
 export class Pet {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column()
@@ -20,6 +28,10 @@ export class Pet {
   @Column()
   birthday: Date;
 
+  @Column()
+  ownerId: string;
+
+  @Exclude()
   @ManyToOne((type) => Owner, (owner) => owner.pets)
   owner: Owner;
 

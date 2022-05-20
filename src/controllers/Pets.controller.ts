@@ -4,6 +4,7 @@ import petsListService from "../services/pets/petsList.service";
 import petListService from "../services/pets/petList.service";
 import petUpdateService from "../services/pets/petUpdate.service";
 import petDeleteService from "../services/pets/petDelete.service";
+import { instanceToPlain } from "class-transformer";
 
 export default class PetsController {
   static async store(req: Request, res: Response) {
@@ -17,7 +18,7 @@ export default class PetsController {
       owner_id,
     });
 
-    return res.status(201).json(pet);
+    return res.status(201).json(instanceToPlain(pet));
   }
 
   static async index(req: Request, res: Response) {
@@ -45,6 +46,6 @@ export default class PetsController {
     const { id } = req.params;
     const deletePet = await petDeleteService(id);
 
-    return res.status(204);
+    return res.status(204).json();
   }
 }

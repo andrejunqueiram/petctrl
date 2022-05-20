@@ -5,7 +5,6 @@ import { IReportCreate } from "../../src/interfaces/reports.interfaces";
 import { IServiceCreate } from "../../src/interfaces/services.interfaces";
 import { IUserCreate } from "../../src/interfaces/user.intefaces";
 
-
 declare global {
   namespace Express {
     interface Request {
@@ -17,7 +16,6 @@ declare global {
       validPet: IPetCreate;
       validReport: IReportCreate;
       validService: IServiceCreate;
-
     }
   }
 }

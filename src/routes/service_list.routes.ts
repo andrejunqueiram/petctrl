@@ -4,8 +4,8 @@ import ServiceListController from "../controllers/ServiceList.controller";
 const serviceListRouter = Router();
 
 serviceListRouter.post("/", ServiceListController.store);
-serviceListRouter.get("/", ServiceListController.index);
-serviceListRouter.get("/", ServiceListController.show);
-serviceListRouter.delete("/", ServiceListController.delete);
+// serviceListRouter.get("/", ServiceListController.index);
+// serviceListRouter.get("/", ServiceListController.show);
+serviceListRouter.delete("/:id", ServiceListController.delete);
 
 export default serviceListRouter;

@@ -13,9 +13,9 @@ const routes = Router();
 routes.use("/reports", reportsRouter);
 routes.use("/services", serviceRouter);
 routes.use("/pets", petsRouter);
-routes.use("/servicelist", serviceListRouter);
+routes.use("/pets/servicelist", serviceListRouter);
 routes.use("/users", userRoutes);
-routes.use("/session", sessionRoutes);
+routes.use("/sessions", sessionRoutes);
 routes.use("/owners", ownerRoutes);
 
 export default routes;

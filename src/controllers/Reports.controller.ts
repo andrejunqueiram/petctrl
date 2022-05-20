@@ -4,6 +4,7 @@ import reportsCreateService from "../services/reports/reportsCreate.service";
 import reportsListServices from "../services/reports/reportsList.service";
 import reportsUpdateServices from "../services/reports/reportsUpdate.service";
 import reportsDeleteService from "../services/reports/reportsDelete.service";
+import { instanceToPlain } from "class-transformer";
 
 export default class ReportsController {
   static async store(req: Request, res: Response) {
@@ -14,11 +15,11 @@ export default class ReportsController {
       reports,
     });
 
-    return res.status(201).json(data);
+    return res.status(201).json(instanceToPlain(data));
   }
 
   static async index(req: Request, res: Response) {
-    const petsList: IReport[] = await reportsListServices();
+    const petsList = await reportsListServices();
 
     return res.json(petsList);
   }
@@ -39,6 +40,6 @@ export default class ReportsController {
   static async delete(req: Request, res: Response) {
     const { id } = req.params;
     await reportsDeleteService({ id });
-    return res.status(204);
+    return res.status(204).json();
   }
 }

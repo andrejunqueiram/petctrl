@@ -1,3 +1,4 @@
+import { instanceToInstance, instanceToPlain } from "class-transformer";
 import { Request, Response } from "express";
 import { ownersCreateService } from "../services/owners/ownersCreate.service";
 import { ownerDeleteService } from "../services/owners/ownersDelete.service";
@@ -12,13 +13,13 @@ export default class OwnersController {
       email,
       address,
       phone_number,
-      pets,
     });
+
     return res.status(201).json(owner);
   }
   static async index(req: Request, res: Response) {
     const owners = await ownerListService();
-    return res.json(owners);
+    return res.json(instanceToPlain(owners));
   }
 
   // static async show(req: Request, res: Response) {
@@ -31,20 +32,19 @@ export default class OwnersController {
 
   static async update(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, email, address, phone_number, pets } = req.body;
+    const { name, email, address, phone_number } = req.body;
     const updatedOwner = await ownerUpdateService(
       id,
       name,
       email,
       address,
-      phone_number,
-      pets
+      phone_number
     );
     return res.json(updatedOwner);
   }
   static async delete(req: Request, res: Response) {
     const { id } = req.params;
     await ownerDeleteService(id);
-    return res.status(204);
+    return res.status(204).json();
   }
 }

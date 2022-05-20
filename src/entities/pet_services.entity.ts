@@ -1,10 +1,17 @@
-import { Entity, PrimaryColumn, ManyToOne, Column } from "typeorm";
+import { Exclude } from "class-transformer";
+import {
+  Entity,
+  PrimaryColumn,
+  ManyToOne,
+  Column,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Service } from "./services.entity";
 import { ServiceList } from "./service_list.entity";
 
 @Entity("petservices")
 export class PetServices {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @ManyToOne((type) => ServiceList)
@@ -13,9 +20,11 @@ export class PetServices {
   @ManyToOne((type) => Service, { eager: true })
   service: Service;
 
+  @Exclude()
   @Column()
-  service_list_id: string;
+  serviceListId: string;
 
+  @Exclude()
   @Column()
-  service_id: string;
+  serviceId: string;
 }
