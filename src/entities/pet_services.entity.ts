@@ -14,5 +14,8 @@ export class PetServices {
   service: Service;
 
   @Column()
-  service_date: Date;
+  service_list_id: string;
+
+  @Column()
+  service_id: string;
 }

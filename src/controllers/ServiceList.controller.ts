@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-export default class PetServicesController {
+export default class ServiceListController {
   static async store(req: Request, res: Response) {}
   static async index(req: Request, res: Response) {}
   static async show(req: Request, res: Response) {}
