@@ -1,33 +1,31 @@
 import { AppDataSource } from "../../data-source";
 
 import { Owner } from "../../entities/owners.entity";
+import AppError from "../../errors/AppError";
 
 export const ownerUpdateService = async (
-    id: string,
-    name: string,
-    email: string,
-    address: string,
-    phone_number: string,
-    pets: string,
+  id: string,
+  name: string,
+  email: string,
+  address: string,
+  phone_number: string
 ) => {
-    const ownerRepository = AppDataSource.getRepository(Owner);
+  const ownerRepository = AppDataSource.getRepository(Owner);
 
-    const owners = await ownerRepository.find();
+  const owner = await ownerRepository.findOne({
+    where: { id },
+  });
 
-    const ownerID = owners.find((owner) => owner.id === id);
+  if (!owner) {
+    throw new AppError("Tutor não encontrado", 404);
+  }
 
-    const newName = name;
-    const newEmail = email;
-    const newAddress = address;
-    const newPhone_number = phone_number;
-    const newPet = pets;
+  name ? (owner.name = name) : owner.name;
+  email ? (owner.email = email) : owner.email;
+  address ? (owner.address = address) : owner.address;
+  phone_number ? (owner.phone_number = phone_number) : owner.phone_number;
 
-    await ownerRepository.update(ownerID!.id,{
-        name: newName,
-        email: newEmail,
-        address: newAddress,
-        phone_number: newPhone_number,
-        pets: newPet,
-    });
+  await ownerRepository.save(owner);
 
-}
+  return owner;
+};

@@ -16,11 +16,11 @@ export class createPetServiceTable1652989053997 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "service_list_id",
+            name: "serviceListId",
             type: "uuid",
           },
           {
-            name: "service_id",
+            name: "serviceId",
             type: "uuid",
           },
         ],

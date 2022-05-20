@@ -41,6 +41,6 @@ export default class ServicesController {
 
     await deleteServiceService({ id });
 
-    return res.status(204);
+    return res.status(204).json();
   }
 }

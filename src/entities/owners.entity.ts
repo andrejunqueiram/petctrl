@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
 import { Pet } from "./pets.entity";
 
-@Entity("owner")
+@Entity("owners")
 export class Owner {
   @PrimaryColumn("uuid")
   readonly id: string;

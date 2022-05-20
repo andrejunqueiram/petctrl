@@ -4,13 +4,14 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 import { Pet } from "./pets.entity";
 import { PetServices } from "./pet_services.entity";
 
 @Entity("servicelist")
 export class ServiceList {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @ManyToOne((type) => Pet, (pet) => pet.service_list)

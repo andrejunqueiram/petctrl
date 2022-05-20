@@ -30,6 +30,7 @@ const petCreateService = async ({
   pet.type = type;
   pet.breed = breed;
   pet.birthday = new Date(birthday);
+  pet.ownerId = owner_id;
 
   petRepository.create(pet);
   await petRepository.save(pet);

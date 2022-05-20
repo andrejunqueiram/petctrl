@@ -16,13 +16,13 @@ export class createServiceListTable1653055010916 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "pet_id",
+            name: "petId",
             type: "uuid",
           },
-          {
-            name: "pet_service_id",
-            type: "uuid",
-          },
+          // {
+          //   name: "petServiceId",
+          //   type: "uuid",
+          // },
           {
             name: "service_date",
             type: "timestamp",

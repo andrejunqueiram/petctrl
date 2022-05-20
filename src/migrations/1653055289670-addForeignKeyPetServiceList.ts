@@ -8,7 +8,7 @@ export class addForeignKeyPetServiceList1653055289670
       "servicelist",
       new TableForeignKey({
         name: "Service_List_Pet_FK",
-        columnNames: ["pet_id"],
+        columnNames: ["petId"],
         referencedColumnNames: ["id"],
         referencedTableName: "pets",
         onDelete: "cascade",
@@ -16,23 +16,23 @@ export class addForeignKeyPetServiceList1653055289670
       })
     );
 
-    await queryRunner.createForeignKey(
-      "servicelist",
-      new TableForeignKey({
-        name: "Service_List_Pet_Service_FK",
-        columnNames: ["pet_service_id"],
-        referencedColumnNames: ["id"],
-        referencedTableName: "petservices",
-        onDelete: "cascade",
-        onUpdate: "cascade",
-      })
-    );
+    // await queryRunner.createForeignKey(
+    //   "servicelist",
+    //   new TableForeignKey({
+    //     name: "Service_List_Pet_Service_FK",
+    //     columnNames: ["petServiceId"],
+    //     referencedColumnNames: ["id"],
+    //     referencedTableName: "petservices",
+    //     onDelete: "cascade",
+    //     onUpdate: "cascade",
+    //   })
+    // );
 
     await queryRunner.createForeignKey(
       "petservices",
       new TableForeignKey({
         name: "Pet_Service_Service_List_FK",
-        columnNames: ["service_list_id"],
+        columnNames: ["serviceListId"],
         referencedColumnNames: ["id"],
         referencedTableName: "servicelist",
         onUpdate: "cascade",
@@ -43,7 +43,7 @@ export class addForeignKeyPetServiceList1653055289670
       "petservices",
       new TableForeignKey({
         name: "Pet_Service_Service_FK",
-        columnNames: ["service_id"],
+        columnNames: ["serviceId"],
         referencedColumnNames: ["id"],
         referencedTableName: "services",
         onUpdate: "cascade",
@@ -57,10 +57,10 @@ export class addForeignKeyPetServiceList1653055289670
       "servicelist",
       "Service_List_Pet_Service_FK"
     );
-    await queryRunner.dropForeignKey(
-      "petservices",
-      "Pet_Service_Service_List_FK"
-    );
+    // await queryRunner.dropForeignKey(
+    //   "petservices",
+    //   "Pet_Service_Service_List_FK"
+    // );
     await queryRunner.dropForeignKey("petservices", "Pet_Service_Service_FK");
   }
 }

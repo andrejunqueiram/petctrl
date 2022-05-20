@@ -16,7 +16,7 @@ export class createReportsTable1652876403349 implements MigrationInterface {
             default: "uuid_generate_v4()",
           },
           {
-            name: "pet_id",
+            name: "petId",
             type: "uuid",
           },
           {
