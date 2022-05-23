@@ -5,15 +5,13 @@ import AppError from "../../errors/AppError";
 const petListService = async (id: string) => {
   const petRepository = AppDataSource.getRepository(Pet);
 
-  const pets = await petRepository.find();
+  const pets = await petRepository.findOne({ where: { id } });
 
-  const pet = pets.find((pet) => pet.id === id);
-
-  if(!pets) {
+  if (!pets) {
     throw new AppError("Id não encontrado.");
   }
 
-  return pet; 
+  return pets;
 };
 
-export default petListService; 
+export default petListService;

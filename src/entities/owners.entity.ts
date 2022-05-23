@@ -1,8 +1,9 @@
-import { Entity, Column, PrimaryColumn, JoinTable, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Pet } from "./pets.entity";
 
-@Entity("owner")
+@Entity("owners")
 export class Owner {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column()
@@ -17,6 +18,8 @@ export class Owner {
   @Column()
   phone_number: string;
 
-  @Column()
-  pets: string;
+  @OneToMany((type) => Pet, (pet) => pet.owner, {
+    eager: true,
+  })
+  pets: Pet[];
 }

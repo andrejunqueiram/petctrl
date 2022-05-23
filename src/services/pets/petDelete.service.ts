@@ -10,7 +10,7 @@ const petDeleteService = async (id: string) => {
     throw new AppError("Id não encontrado.");
   }
 
-  await petRepository.delete(pet!.id);
+  await petRepository.delete(pet.id);
 
   return true;
 };

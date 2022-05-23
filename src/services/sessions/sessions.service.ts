@@ -1,9 +1,9 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { AppDataSource } from "../../data-source";
-import { User } from "../../entities/user.entity";
+import { User } from "../../entities/users.entity";
 import AppError from "../../errors/AppError";
-import { IUserSession } from "../../interfaces/user.inteface";
+import { IUserSession } from "../../interfaces/user.intefaces";
 
 const authService = async ({ name, password }: IUserSession) => {
   const userRepository = AppDataSource.getRepository(User);

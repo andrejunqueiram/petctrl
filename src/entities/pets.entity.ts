@@ -1,10 +1,19 @@
-import { Entity, Column, PrimaryColumn, JoinTable, OneToMany, ManyToMany } from "typeorm";
-import Service from "./Services";
+import { Exclude } from "class-transformer";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  OneToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { Owner } from "./owners.entity";
+import { Reports } from "./reports.entity";
+import { ServiceList } from "./service_list.entity";
 
-
-@Entity()
+@Entity("pets")
 export class Pet {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column()
@@ -19,22 +28,20 @@ export class Pet {
   @Column()
   birthday: Date;
 
-  @ManyToMany((type) => Service, (service) => service.id, {
+  @Column()
+  ownerId: string;
+
+  @Exclude()
+  @ManyToOne((type) => Owner, (owner) => owner.pets)
+  owner: Owner;
+
+  @OneToMany((type) => ServiceList, (service_list) => service_list.pet, {
     eager: true,
   })
-  @JoinTable()
-  attendance: Service[];
+  service_list: ServiceList[];
 
-
-  // @OneToMany((type) => Owners, {
-  //   eager: true,
-  // })
-  // @JoinTable()
-  // owner_id: string;
-
-//     @OneToMany((type) => Reports, {
-//         eager: true,
-//     })
-//   @JoinTable()
-//   reports: Reports[];
+  @OneToMany((type) => Reports, (report) => report.pet, {
+    eager: true,
+  })
+  reports: Reports[];
 }

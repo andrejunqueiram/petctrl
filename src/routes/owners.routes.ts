@@ -1,12 +1,20 @@
 import { Router } from "express";
 
-import OwnersController from "../controllers/owners.controller";
+import OwnersController from "../controllers/Owners.controller";
+import {
+  createOwnerSchema,
+  validateOwnerCreation,
+} from "../validation/owners/ownersCreation.validation";
 
-const ownerRoutes = Router ();
+const ownerRoutes = Router();
 
-ownerRoutes.post("/owners", OwnersController.store)
-ownerRoutes.get("/owners", OwnersController.index)
-ownerRoutes.patch("/owners/:id", OwnersController.update)
-ownerRoutes.delete("/owners/:id", OwnersController.delete)
+ownerRoutes.post(
+  "/",
+  validateOwnerCreation(createOwnerSchema),
+  OwnersController.store
+);
+ownerRoutes.get("/", OwnersController.index);
+ownerRoutes.patch("/:id", OwnersController.update);
+ownerRoutes.delete("/:id", OwnersController.delete);
 
 export default ownerRoutes;
