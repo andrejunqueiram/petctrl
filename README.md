@@ -35,7 +35,7 @@ https://petctrl.herokuapp.com/
 
 Diagrama ER da API definindo bem as relações entre as tabelas do banco de dados.
 
-![DER](DER2.png)
+![DER](DER.png)
 
 ---
 
