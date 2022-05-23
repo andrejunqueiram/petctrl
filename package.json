@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "runMig": "typeorm-ts-node-commonjs migration:run -d src/data-source.ts"
   },
   "devDependencies": {
