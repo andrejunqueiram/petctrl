@@ -8,7 +8,7 @@ import { instanceToPlain } from "class-transformer";
 
 export default class ReportsController {
   static async store(req: Request, res: Response) {
-    const { reports, pet_id } = req.body;
+    const { reports, pet_id } = req.validReport;
 
     const data = await reportsCreateService({
       pet_id,
