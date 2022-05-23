@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import User from "../entities/User";
+import { User } from "../entities/users.entity";
+
 import AppError from "../errors/AppError";
 
 const checkAdmCheckMiddleware = async (
