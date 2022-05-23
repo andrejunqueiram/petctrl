@@ -2,7 +2,6 @@ import { Exclude } from "class-transformer";
 import {
   Entity,
   Column,
-  PrimaryColumn,
   OneToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
