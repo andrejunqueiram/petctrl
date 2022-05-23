@@ -4,7 +4,7 @@ import { User } from "../entities/users.entity";
 
 import AppError from "../errors/AppError";
 
-const checkAdmCheckMiddleware = async (
+const checkAdmMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -31,4 +31,4 @@ const checkAdmCheckMiddleware = async (
   return next();
 };
 
-export default checkAdmCheckMiddleware;
+export default checkAdmMiddleware;

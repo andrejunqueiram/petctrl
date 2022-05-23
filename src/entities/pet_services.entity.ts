@@ -1,11 +1,5 @@
 import { Exclude } from "class-transformer";
-import {
-  Entity,
-  PrimaryColumn,
-  ManyToOne,
-  Column,
-  PrimaryGeneratedColumn,
-} from "typeorm";
+import { Entity, ManyToOne, Column, PrimaryGeneratedColumn } from "typeorm";
 import { Service } from "./services.entity";
 import { ServiceList } from "./service_list.entity";
 

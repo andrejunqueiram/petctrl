@@ -3,7 +3,6 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Pet } from "./pets.entity";

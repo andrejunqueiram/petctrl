@@ -12,5 +12,3 @@ export interface IOwnerCreate {
   address: string;
   phone_number: string;
 }
-
-//pets precisa ser passado como array. Estou passando como string no momento
