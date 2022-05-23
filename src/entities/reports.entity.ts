@@ -1,4 +1,4 @@
-import { Exclude } from "class-transformer";
+import { Exclude, Expose } from "class-transformer";
 import {
   Entity,
   Column,
@@ -15,6 +15,11 @@ export class Reports {
 
   @Column({ nullable: true })
   reports: string;
+
+  @Expose({ name: "pet_id" })
+  getPetId(): string {
+    return this.pet.id;
+  }
 
   @Exclude()
   @ManyToOne((type) => Pet, (pet) => pet.reports)

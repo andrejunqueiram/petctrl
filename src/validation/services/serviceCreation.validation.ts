@@ -12,7 +12,8 @@ export const createServiceSchema: SchemaOf<IServiceCreate> = yup
     price: yup.number().required("preço é obrigatório"),
   });
 
-export const validateServiceCreation = (schema: SchemaOf<IServiceCreate>) => {
+export const validateServiceCreation =
+  (schema: SchemaOf<IServiceCreate>) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
@@ -32,4 +33,3 @@ export const validateServiceCreation = (schema: SchemaOf<IServiceCreate>) => {
       next(err);
     }
   };
-};

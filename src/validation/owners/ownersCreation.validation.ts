@@ -15,7 +15,8 @@ export const createOwnerSchema: SchemaOf<IOwnerCreate> = yup.object().shape({
   phone_number: yup.string().required("telefone é obrigatório"),
 });
 
-export const validateOwnerCreation = (schema: SchemaOf<IOwnerCreate>) => {
+export const validateOwnerCreation =
+  (schema: SchemaOf<IOwnerCreate>) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
@@ -35,4 +36,3 @@ export const validateOwnerCreation = (schema: SchemaOf<IOwnerCreate>) => {
       next(err);
     }
   };
-};

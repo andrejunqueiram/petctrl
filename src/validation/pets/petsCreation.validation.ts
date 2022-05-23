@@ -12,7 +12,8 @@ export const createPetSchema: SchemaOf<IPetCreate> = yup.object().shape({
   type: yup.string().required("tipo é obrigatório"),
 });
 
-export const validatePetCreation = (schema: SchemaOf<IPetCreate>) => {
+export const validatePetCreation =
+  (schema: SchemaOf<IPetCreate>) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
@@ -32,4 +33,3 @@ export const validatePetCreation = (schema: SchemaOf<IPetCreate>) => {
       next(err);
     }
   };
-};

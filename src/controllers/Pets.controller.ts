@@ -8,7 +8,7 @@ import { instanceToPlain } from "class-transformer";
 
 export default class PetsController {
   static async store(req: Request, res: Response) {
-    const { name, breed, type, birthday, owner_id } = req.body;
+    const { name, breed, type, birthday, owner_id } = req.validPet;
 
     const pet = await petCreateService({
       name,

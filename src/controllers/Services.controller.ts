@@ -24,7 +24,7 @@ export default class ServicesController {
 
   static async update(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, price, category } = req.body;
+    const { name, price, category } = req.validService;
 
     const updateService = await updateServiceService({
       id,
