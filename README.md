@@ -25,7 +25,7 @@ Visão geral do projeto, um pouco das tecnologias usadas.
 - [Yup](https://www.npmjs.com/package/yup)
 
 A URL base da aplicação:
-http://suaapi.com/v1
+https://petctrl.herokuapp.com/
 
 ---
 
@@ -155,7 +155,7 @@ O objeto Owners é definido como:
 
 ```
 POST /owners
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: None
 Content-type: application/json
 ```
@@ -205,7 +205,7 @@ Content-type: application/json
 
 ```
 GET /owners
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: None
 Content-type: application/json
 ```
@@ -251,7 +251,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 
 ```
 PATCH /owners/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: ID
 Content-type: application/json
 ```
@@ -302,7 +302,7 @@ Content-type: application/json
 
 ```
 DELETE /owners/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: ID
 Content-type: application/json
 ```
@@ -367,7 +367,7 @@ O objeto Pets é definido como:
 
 ```
 POST /pets
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: None
 Content-type: application/json
 ```
@@ -420,7 +420,7 @@ Content-type: application/json
 
 ```
 GET /owners
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: token
 Content-type: application/json
 ```
@@ -468,7 +468,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 
 ```
 GET /pets/9cda28c9-e540-4b2c-bf0c-c90006d37893
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: token
 Content-type: application/json
 ```
@@ -522,7 +522,7 @@ Vazio
 
 ```
 PATCH /pets/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: ID
 Content-type: application/json
 ```
@@ -570,7 +570,7 @@ Vazio
 
 ```
 DELETE /pets/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: ID
 Content-type: application/json
 ```
@@ -633,7 +633,7 @@ O objeto Reports é definido como:
 
 ```
 POST /reports
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: Token
 Content-type: application/json
 ```
@@ -679,7 +679,7 @@ Content-type: application/json
 
 ```
 GET /reports
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: None
 Content-type: application/json
 ```
@@ -720,7 +720,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 
 ```
 PATCH /reports/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: Token
 Content-type: application/json
 ```
@@ -766,7 +766,7 @@ Content-type: application/json
 
 ```
 DELETE /reports/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: ID
 Content-type: application/json
 ```
@@ -829,7 +829,7 @@ O objeto Services é definido como:
 
 ```
 POST /services
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: Token
 Content-type: application/json
 ```
@@ -877,7 +877,7 @@ Content-type: application/json
 
 ```
 GET /services
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: Token
 Content-type: application/json
 ```
@@ -921,7 +921,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 
 ```
 PATCH /services/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: Token
 Content-type: application/json
 ```
@@ -969,7 +969,7 @@ Content-type: application/json
 
 ```
 DELETE /services/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: token
 Content-type: application/json
 ```
@@ -1018,7 +1018,7 @@ Vazio
 
 ```
 POST /sessions
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: none.
 Content-type: application/json
 ```
@@ -1101,7 +1101,7 @@ O objeto Service_list é definido como:
 
 ```
 POST /pets/servicelist
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: Token
 Content-type: application/json
 ```
@@ -1160,7 +1160,7 @@ Content-type: application/json
 
 ```
 DELETE /services/:id
-Host: http://suaapi.com/v1
+Host: https://petctrl.herokuapp.com/
 Authorization: token
 Content-type: application/json
 ```
