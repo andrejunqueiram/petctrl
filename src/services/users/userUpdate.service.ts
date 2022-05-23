@@ -2,7 +2,7 @@ import { compare, hash } from "bcryptjs";
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities/users.entity";
 import AppError from "../../errors/AppError";
-import { IUser } from "../../interfaces/user.intefaces";
+import { IUser } from "../../interfaces/user.interfaces";
 
 const updateUserService = async ({ id, name, password, isAdm }: IUser) => {
   const userRepository = AppDataSource.getRepository(User);
