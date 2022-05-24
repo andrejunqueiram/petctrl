@@ -17,7 +17,7 @@ export const ownersCreateService = async ({
   });
 
   if (ownerExistance) {
-    throw new AppError("Tutor já cadastrado com este e-mail");
+    throw new AppError("Tutor já cadastrado com este e-mail", 409);
   }
 
   const owner = new Owner();
