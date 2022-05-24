@@ -104,7 +104,7 @@ describe("Teste para validação do tutor", () => {
       .get("/owners")
       .set("Authorization", `Bearer ${token}`);
     const ownerList = owners.body;
-    console.log(ownerList);
+
     const owner = ownerList.find((item: any) => item.name === "nome");
 
     const id = owner.id;
@@ -130,7 +130,6 @@ describe("Teste para validação do tutor", () => {
       .get("/owners")
       .set("Authorization", `Bearer ${token}`);
     const ownerList = owners.body;
-    console.log(ownerList);
     const owner = ownerList.find((item: any) => item.name === "nome");
 
     const id = owner.id;
@@ -141,7 +140,7 @@ describe("Teste para validação do tutor", () => {
       adress: "endereco 2",
       phone_number: "2345678901",
     });
-    // console.log(response);
+
     expect(response.status).toBe(404);
   });
   test("Deve ser possível listar os tutores", async () => {
@@ -166,10 +165,11 @@ describe("Teste para validação do tutor", () => {
     const token = loginResponse.body.token;
 
     const id = uuid();
-    console.log(id);
+
     const response = await request(app)
       .delete(`/owners/${id}`)
-      .set("Authorization", `Bearer ${token}`);
+      .set("Authorization", `Bearer ${token}`)
+      .send();
 
     expect(response.status).toBe(404);
   });
