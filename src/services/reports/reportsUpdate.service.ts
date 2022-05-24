@@ -7,7 +7,7 @@ const reportsUpdateServices = async ({ id, pet_id, reports }: IReport) => {
   const reportsRepository = AppDataSource.getRepository(Reports);
   const data = await reportsRepository.findOne({ where: { id } });
   if (!data) {
-    throw new AppError("Nenhum relatorio com esse id");
+    throw new AppError("Nenhum relatório com esse id.", 404);
   }
   reports ? (data.reports = reports) : data.reports;
 
