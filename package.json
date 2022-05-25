@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "16.14.0",
-    "npm": "8.x"
+    "yarn": "1.x"
   },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
