@@ -10,10 +10,10 @@ export class Reports {
   @Column({ nullable: true })
   reports: string;
 
-  @Expose({ name: "pet_id" })
-  getPetId(): string {
-    return this.pet.id;
-  }
+  // @Expose({ name: "pet_id" })
+  // getPetId(): string {
+  //   return this.pet.id;
+  // }
 
   @Exclude()
   @ManyToOne((type) => Pet, (pet) => pet.reports)
