@@ -2,16 +2,15 @@ import { Request, Response, NextFunction } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
 import AppError from "../../errors/AppError";
-import { IUserCreate } from "../../interfaces/user.interfaces";
+import { IUserSession } from "../../interfaces/user.interfaces";
 
-export const createUserSchema: SchemaOf<IUserCreate> = yup.object().shape({
+export const sessionsLogin: SchemaOf<IUserSession> = yup.object().shape({
   name: yup.string().required("nome é obrigatório"),
   password: yup.string().required("senha é obrigatório"),
-  isAdm: yup.boolean().required("verificação de cargo é obrigatório"),
 });
 
-export const validateUserCreation =
-  (schema: SchemaOf<IUserCreate>) =>
+export const validateSessionsLogin =
+  (schema: SchemaOf<IUserSession>) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
@@ -22,7 +21,7 @@ export const validateUserCreation =
           stripUnknown: true,
         });
 
-        req.validUser = validatedData;
+        req.validSession = validatedData;
         next();
       } catch (err: any) {
         // throw new AppError(err.errors?.join(", "));

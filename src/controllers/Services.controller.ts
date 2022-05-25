@@ -7,7 +7,7 @@ import updateServiceService from "../services/services/serviceUpdate.service";
 
 export default class ServicesController {
   static async store(req: Request, res: Response) {
-    const { name, price, category } = req.body;
+    const { name, price, category } = req.validService;
 
     const service = await createServiceService({ name, price, category });
 

@@ -1,33 +1,34 @@
-// import { NextFunction, Request, Response } from "express";
-// import { AppDataSource } from "../data-source";
-// import User from "../entities/User";
-// import AppError from "../errors/AppError";
+import { NextFunction, Request, Response } from "express";
+import { AppDataSource } from "../data-source";
+import { User } from "../entities/users.entity";
 
-// const checkAdmCheckMiddleware = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const { id } = req.user;
-//   const userRepository = AppDataSource.getRepository(User);
-//   const user = await userRepository.findOne({
-//     where: {
-//       id,
-//     },
-//   });
+import AppError from "../errors/AppError";
 
-//   if (!user) {
-//     throw new AppError("Usuário não encontrado", 404);
-//   }
+const checkAdmMiddleware = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id } = req.user;
+  const userRepository = AppDataSource.getRepository(User);
+  const user = await userRepository.findOne({
+    where: {
+      id,
+    },
+  });
 
-//   if (!user.isAdm) {
-//     throw new AppError(
-//       "Acesso negado (condição de Administrador necessária)",
-//       401
-//     );
-//   }
+  if (!user) {
+    throw new AppError("Usuário não encontrado", 404);
+  }
 
-//   return next();
-// };
+  if (!user.isAdm) {
+    throw new AppError(
+      "Acesso negado (condição de Administrador necessária)",
+      401
+    );
+  }
 
-// export default checkAdmCheckMiddleware;
+  return next();
+};
+
+export default checkAdmMiddleware;
