@@ -13,7 +13,7 @@ const createServiceService = async ({
   const serviceExistance = await serviceRepository.findOne({ where: { name } });
 
   if (serviceExistance) {
-    throw new AppError("Serviço já cadastrado.");
+    throw new AppError("Serviço já cadastrado.", 409);
   }
 
   const service = new Service();
