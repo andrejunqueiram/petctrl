@@ -20,15 +20,11 @@ const serviceListCreateService = async ({
     id: In(pet_services),
   });
 
-  console.log(services);
-
   if (!services[pet_services.length - 1]) {
     throw new AppError("Lista de serviços não encontrada", 404);
   }
 
   const pet = await petRepository.findOne({ where: { id: pet_id } });
-
-  console.log(pet);
 
   if (!pet) {
     throw new AppError("Pet não encontrado.", 404);
@@ -40,21 +36,7 @@ const serviceListCreateService = async ({
   serviceListRepository.create(serviceList);
   await serviceListRepository.save(serviceList);
 
-  // pet_services.forEach(async (serviceId) => {
-  //   const petService = petServiceRepository.create({
-  //     serviceListId: serviceList.id,
-  //     serviceId,
-  //   });
-
-  //   console.log("***************************************************");
-  //   console.log(petService);
-
-  //   await petServiceRepository.save(petService);
-  // });
-
   pet_services.forEach(async (service_id) => {
-    console.log("***********************************************8");
-    console.log(serviceList);
     const petService = new PetServices();
     petService.serviceListId = serviceList.id;
     petService.serviceId = service_id;

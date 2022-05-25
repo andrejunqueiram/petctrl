@@ -8,7 +8,7 @@ const updateUserService = async ({ id, name, password, isAdm }: IUser) => {
   const userRepository = AppDataSource.getRepository(User);
   const user = await userRepository.findOne({ where: { id } });
   if (!user) {
-    throw new AppError("O usuárionão foi encontrado");
+    throw new AppError("O usuário não foi encontrado", 404);
   }
 
   name ? (user.name = name) : user.name;
