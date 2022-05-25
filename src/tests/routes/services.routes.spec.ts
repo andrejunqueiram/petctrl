@@ -124,7 +124,7 @@ describe("Teste para validação dos serviços", () => {
     const serviceList = services.body;
 
     const service = serviceList.find((item: any) => item.name === "serviço");
-    console.log(service);
+
     const id = service.id;
 
     const res = await request(app)
