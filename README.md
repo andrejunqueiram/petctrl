@@ -288,7 +288,10 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-401- Sem autorizaçao, 404- Tutor não encontrado.
+| Código do Erro  | Descrição             |
+| --------------- | --------------------- |
+| 401 bad request | Sem autorizaçao.      |
+| 404 bad request | Tutor não encontrado. |
 
 ---
 
@@ -325,7 +328,10 @@ Vazio
 
 ### Possíveis Erros:
 
-401- Sem autorizaçao, 404- Tutor não encontrado.
+| Código do Erro   | Descrição             |
+| ---------------- | --------------------- |
+| 404 not found    | Tutor não encontrado. |
+| 401 unauthorized | Sem autorizacao.      |
 
 ---
 
@@ -403,10 +409,10 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição             |
-| -------------- | --------------------- |
-| 404            | Tutor não encontrado. |
-| 401            | Sem autorizacao.      |
+| Código do Erro   | Descrição           |
+| ---------------- | ------------------- |
+| 404 not found    | Pet não encontrado. |
+| 401 unauthorized | Sem autorizacao.    |
 
 ---
 
@@ -986,10 +992,6 @@ Vazio
 204 No content
 ```
 
-```json
-
-```
-
 ### Possíveis Erros:
 
 | Código do Erro | Descrição              |
@@ -998,8 +1000,6 @@ Vazio
 
 ---
 
-- password | string | Senha de acesso. |
-
 ### Endpoints
 
 | Método | Rota      | Descrição |
@@ -1007,6 +1007,17 @@ Vazio
 | POST   | /sessions | Login.    |
 
 ---
+
+## 5. **Sessions**
+
+[ Voltar para os Endpoints ](#5-endpoints)
+
+O objeto Sessions é definido como:
+
+| Campo    | Tipo   | Descrição         |
+| -------- | ------ | ----------------- |
+| name     | string | Nome de usuario.  |
+| password | string | Senha do usuario. |
 
 ### 5.1. **Criação de Sessions**
 
@@ -1058,19 +1069,206 @@ Content-type: application/json
 
 ---
 
-## 5. **Sessions**
+## 6. **Users**
 
 [ Voltar para os Endpoints ](#5-endpoints)
 
-O objeto Sessions é definido como:
+O objeto Services é definido como:
 
-| Campo | Tipo   | Descrição        |
-| ----- | ------ | ---------------- |
-| name  | string | Nome de usuario. |
+| Campo    | Tipo    | Descrição                       |
+| -------- | ------- | ------------------------------- |
+| id       | string  | Identificador único de usuario. |
+| name     | string  | O nome do usuario.              |
+| password | string  | Senha do usuario.               |
+| isAdm    | boolean | Verificacao de adm.             |
 
-|
+### Endpoints
 
-## 6. **Service_list\***
+| Método | Rota          | Descrição                                                |
+| ------ | ------------- | -------------------------------------------------------- |
+| POST   | /services     | Criação de um usuario.                                   |
+| GET    | /services     | Lista todos os usuarios.                                 |
+| PATCH  | /services/:id | Altera o dado de um usuario usando seu ID como parâmetro |
+| DELETE | /services/:id | Deleta o usuario usando seu ID como parâmetro            |
+
+---
+
+### 6.1. **Criação de Users**
+
+[ Voltar para os Endpoints ](#5-endpoints)
+
+### `/users`
+
+### Exemplo de Request:
+
+```
+POST /users
+Host: https://petctrl.herokuapp.com/
+Authorization: Token
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+
+```json
+{
+  "name": "Artur",
+  "password": "12345",
+  "isAdm": "false"
+}
+```
+
+### Exemplo de Response:
+
+```
+201 Created
+```
+
+```json
+{
+  "id": "9cda28c9-e540-4b2c-bf0c-c90006d37893",
+  "name": "Artur",
+  "password": "12345",
+  "isAdm": "false"
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição          |
+| -------------- | ------------------ |
+| 409 conflict   | Usuario ja existe. |
+
+---
+
+### 6.2. **Listando Users**
+
+[ Voltar aos Endpoints ](#5-endpoints)
+
+### `/users`
+
+### Exemplo de Request:
+
+```
+GET /users
+Host: https://petctrl.herokuapp.com/
+Authorization: Token
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+
+```json
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+[
+  {
+    "id": "9cda28c9-e540-4b2c-bf0c-c90006d37893",
+    "name": "Artur",
+    "password": "12345",
+    "isAdm": "false"
+  }
+]
+```
+
+### Possíveis Erros:
+
+Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
+
+---
+
+### 6.3. **Atualizando Users**
+
+[ Voltar aos Endpoints ](#5-endpoints)
+
+### `/users/:id`
+
+### Exemplo de Request:
+
+```
+PATCH /users/:id
+Host: https://petctrl.herokuapp.com/
+Authorization: Token
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+
+```json
+{
+  "name": "Artur",
+  "password": "1234",
+  "isAdm": "false"
+}
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+  "id": "9cda28c9-e540-4b2c-bf0c-c90006d37893",
+  "name": "Artur",
+  "password": "1234",
+  "isAdm": "false"
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição              |
+| -------------- | ---------------------- |
+| 404 not found  | Usuario nao encontrado |
+
+---
+
+### 6.4. **Deletando users**
+
+[ Voltar aos Endpoints ](#5-endpoints)
+
+### `/users/:id`
+
+### Exemplo de Request:
+
+```
+DELETE /users/:id
+Host: https://petctrl.herokuapp.com/
+Authorization: token
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+
+```json
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+204 No content
+```
+
+### Possíveis Erros:
+
+| Código do Erro | Descrição               |
+| -------------- | ----------------------- |
+| 404 not found  | Usuario nao encontrado. |
+
+---
+
+## 7. **Service_list\***
 
 [ Voltar para os Endpoints ](#5-endpoints)
 
@@ -1091,7 +1289,7 @@ O objeto Service_list é definido como:
 
 ---
 
-### 6.1. **Criação de Services_list**
+### 7.1. **Criação de Services_list**
 
 [ Voltar para os Endpoints ](#5-endpoints)
 
@@ -1175,10 +1373,6 @@ Vazio
 
 ```
 204 No content
-```
-
-```json
-
 ```
 
 ### Possíveis Erros:
