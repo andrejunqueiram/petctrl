@@ -14,5 +14,5 @@
 # .env
 /.yarn
 .editorconfig
-yarn.lock
+# yarn.lock
 //
