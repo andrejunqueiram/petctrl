@@ -8,7 +8,7 @@ const reportsDeleteService = async ({ id }: IReportId) => {
   const data = await reportsRepository.findOne({ where: { id } });
 
   if (!data) {
-    throw new AppError("Nenhum relatorio com esse id");
+    throw new AppError("Nenhum relatório com esse id.", 404);
   }
 
   await reportsRepository.delete(id);
