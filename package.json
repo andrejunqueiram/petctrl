@@ -1,8 +1,10 @@
 {
   "name": "capstonem4fabio",
-  "packageManager": "yarn@3.2.0",
   "license": "MIT",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.14.0"
+  },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
