@@ -14,7 +14,7 @@ const updateServiceService = async ({
   const service = await serviceRepository.findOne({ where: { id } });
 
   if (!service) {
-    throw new AppError("Nenhum serviço com esse id");
+    throw new AppError("Nenhum serviço com esse id", 404);
   }
 
   name ? (service.name = name) : service.name;

@@ -156,7 +156,7 @@ O objeto Owners é definido como:
 ```
 POST /owners
 Host: https://petctrl.herokuapp.com/
-Authorization: None
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -206,7 +206,7 @@ Content-type: application/json
 ```
 GET /owners
 Host: https://petctrl.herokuapp.com/
-Authorization: None
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -252,7 +252,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 ```
 PATCH /owners/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: ID
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -306,7 +306,7 @@ Content-type: application/json
 ```
 DELETE /owners/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: ID
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -374,7 +374,7 @@ O objeto Pets é definido como:
 ```
 POST /pets
 Host: https://petctrl.herokuapp.com/
-Authorization: None
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -427,7 +427,7 @@ Content-type: application/json
 ```
 GET /owners
 Host: https://petctrl.herokuapp.com/
-Authorization: token
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -475,7 +475,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 ```
 GET /pets/9cda28c9-e540-4b2c-bf0c-c90006d37893
 Host: https://petctrl.herokuapp.com/
-Authorization: token
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -529,7 +529,7 @@ Vazio
 ```
 PATCH /pets/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: ID
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -577,7 +577,7 @@ Vazio
 ```
 DELETE /pets/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: ID
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -640,7 +640,7 @@ O objeto Reports é definido como:
 ```
 POST /reports
 Host: https://petctrl.herokuapp.com/
-Authorization: Token
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -686,7 +686,7 @@ Content-type: application/json
 ```
 GET /reports
 Host: https://petctrl.herokuapp.com/
-Authorization: None
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -727,7 +727,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 ```
 PATCH /reports/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: Token
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -773,7 +773,7 @@ Content-type: application/json
 ```
 DELETE /reports/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: ID
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -976,7 +976,7 @@ Content-type: application/json
 ```
 DELETE /services/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: token
+Authorization: Token
 Content-type: application/json
 ```
 
@@ -1030,7 +1030,7 @@ O objeto Sessions é definido como:
 ```
 POST /sessions
 Host: https://petctrl.herokuapp.com/
-Authorization: none.
+Authorization: None
 Content-type: application/json
 ```
 
@@ -1104,7 +1104,7 @@ O objeto Services é definido como:
 ```
 POST /users
 Host: https://petctrl.herokuapp.com/
-Authorization: Token
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -1152,7 +1152,7 @@ Content-type: application/json
 ```
 GET /users
 Host: https://petctrl.herokuapp.com/
-Authorization: Token
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -1196,7 +1196,7 @@ Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
 ```
 PATCH /users/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: Token
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -1244,7 +1244,7 @@ Content-type: application/json
 ```
 DELETE /users/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: token
+Authorization: Token & Adm
 Content-type: application/json
 ```
 
@@ -1359,7 +1359,7 @@ Content-type: application/json
 ```
 DELETE /services/:id
 Host: https://petctrl.herokuapp.com/
-Authorization: token
+Authorization: Token
 Content-type: application/json
 ```
 

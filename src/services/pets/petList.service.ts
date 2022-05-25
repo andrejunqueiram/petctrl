@@ -8,7 +8,7 @@ const petListService = async (id: string) => {
   const pets = await petRepository.findOne({ where: { id } });
 
   if (!pets) {
-    throw new AppError("Id não encontrado.");
+    throw new AppError("Id não encontrado.", 404);
   }
 
   return pets;
