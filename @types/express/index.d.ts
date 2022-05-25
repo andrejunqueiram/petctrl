@@ -3,7 +3,11 @@ import { IOwnerCreate } from "../../src/interfaces/owners.interfaces";
 import { IPetCreate } from "../../src/interfaces/pets.interfaces";
 import { IReportCreate } from "../../src/interfaces/reports.interfaces";
 import { IServiceCreate } from "../../src/interfaces/services.interfaces";
-import { IUserCreate } from "../../src/interfaces/user.intefaces";
+import { IServiceListCreate } from "../../src/interfaces/service_list.interfaces";
+import {
+  IUserCreate,
+  IUserSession,
+} from "../../src/interfaces/user.interfaces";
 
 declare global {
   namespace Express {
@@ -16,6 +20,8 @@ declare global {
       validPet: IPetCreate;
       validReport: IReportCreate;
       validService: IServiceCreate;
+      validSession: IUserSession;
+      validServiceList: IServiceListCreate;
     }
   }
 }

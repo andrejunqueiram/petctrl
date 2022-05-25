@@ -9,7 +9,7 @@ const deleteServiceService = async ({ id }: IServiceId) => {
   const service = await serviceRepository.findOne({ where: { id } });
 
   if (!service) {
-    throw new AppError("Nenhum serviço com esse id");
+    throw new AppError("Nenhum serviço com esse id", 404);
   }
 
   return await serviceRepository.delete(id);

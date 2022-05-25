@@ -1,9 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../data-source";
-import User from "../entities/User";
+import { User } from "../entities/users.entity";
+
 import AppError from "../errors/AppError";
 
-const checkAdmCheckMiddleware = async (
+const checkAdmMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -30,4 +31,4 @@ const checkAdmCheckMiddleware = async (
   return next();
 };
 
-export default checkAdmCheckMiddleware;
+export default checkAdmMiddleware;

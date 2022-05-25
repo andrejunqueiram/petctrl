@@ -4,7 +4,7 @@ import serviceListDeleteService from "../services/service_list/serviceListDelete
 
 export default class ServiceListController {
   static async store(req: Request, res: Response) {
-    const { pet_id, pet_services } = req.body;
+    const { pet_id, pet_services } = req.validServiceList;
 
     const serviceList = await serviceListCreateService({
       pet_id,

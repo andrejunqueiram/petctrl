@@ -7,7 +7,7 @@ const petDeleteService = async (id: string) => {
   const pet = await petRepository.findOne({ where: { id } });
 
   if (!pet) {
-    throw new AppError("Id não encontrado.");
+    throw new AppError("Id não encontrado.", 404);
   }
 
   await petRepository.delete(pet.id);

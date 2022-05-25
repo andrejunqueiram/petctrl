@@ -6,7 +6,7 @@ import { ownerListService } from "../services/owners/ownersList.service";
 import { ownerUpdateService } from "../services/owners/ownersUpdate.service";
 export default class OwnersController {
   static async store(req: Request, res: Response) {
-    const { name, email, address, phone_number, pets } = req.body;
+    const { name, email, address, phone_number } = req.validOwner;
 
     const owner = await ownersCreateService({
       name,
