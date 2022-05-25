@@ -1,4 +1,4 @@
-.yarn/*
+# .yarn/*
 # !.yarn/patches
 # !.yarn/plugins
 # !.yarn/releases
@@ -15,5 +15,4 @@
 /.yarn
 .editorconfig
 yarn.lock
-!.yarn/releases
 //
