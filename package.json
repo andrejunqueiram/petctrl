@@ -37,5 +37,6 @@
     "typeorm": "^0.3.6",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
