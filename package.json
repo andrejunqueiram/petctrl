@@ -2,9 +2,10 @@
   "name": "capstonem4fabio",
   "packageManager": "yarn@3.2.0",
   "license": "MIT",
+  "main": "app.js",
   "version": "1.0.0",
   "engines": {
-    "yarn": "2.x"
+    "yarn": "1.x"
   },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
