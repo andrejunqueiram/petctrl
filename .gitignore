@@ -15,4 +15,5 @@
 /.yarn
 .editorconfig
 yarn.lock
+!.yarn/releases
 //
