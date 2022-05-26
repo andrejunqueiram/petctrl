@@ -10,6 +10,7 @@
   - [Migrations](#33-migrations)
 - [Autenticação](#4-autenticação)
 - [Endpoints](#5-endpoints)
+- [Erro no Teste](#6-erro-no-teste)
 
 ---
 
@@ -75,7 +76,7 @@ yarn runMig
 
 [ Voltar para o topo ](#tabela-de-conteúdos)
 
-Por enquanto, não foi implementada autenticação.
+Nas rotas estão especificados os tipos tipos de autenticação necessárias. Para todas é necessário estar logado (no login, um token JWT será disponibilizado para o usuário), porém em outras rotas, também é necessário ter condição de Administrador.
 
 ---
 
@@ -189,9 +190,11 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição                           |
-| -------------- | ----------------------------------- |
-| 409 Conflict   | Tutor ja cadastrado com esse email. |
+| Código do Erro   | Descrição                           |
+| ---------------- | ----------------------------------- |
+| 409 Conflict     | Tutor ja cadastrado com esse email. |
+| 404 Not Found    | Token de autenticação inexistente.  |
+| 401 Unauthorized | Token inválido.                     |
 
 ---
 
@@ -237,7 +240,10 @@ Vazio
 
 ### Possíveis Erros:
 
-Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -288,10 +294,11 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro  | Descrição             |
-| --------------- | --------------------- |
-| 401 bad request | Sem autorizaçao.      |
-| 404 bad request | Tutor não encontrado. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Tutor não encontrado.              |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -328,10 +335,11 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro   | Descrição             |
-| ---------------- | --------------------- |
-| 404 not found    | Tutor não encontrado. |
-| 401 unauthorized | Sem autorizacao.      |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 not found    | Tutor não encontrado.              |
+| 404 not found    | Token de autenticação inexistente. |
+| 401 unauthorized | Token inválido.                    |
 
 ---
 
@@ -382,7 +390,7 @@ Content-type: application/json
 
 ```json
 {
-  "name": "Tutor1",
+  "name": "Pet 1",
   "breed": "srd",
   "type": "cachorro",
   "birthday": "01/01/2010",
@@ -399,20 +407,21 @@ Content-type: application/json
 ```json
 {
   "id": "9cda28c9-e540-4b2c-bf0c-c90006d37893",
-  "name": "Tutor1",
+  "name": "Pet 1",
   "breed": "srd",
   "type": "cachorro",
-  "birthday": "01/01/2010",
+  "birthday": "2010-01-01T00:00:00.000Z",
   "ownerId": "9cda28c9-e540-4b2c-bf0c-c90006d37893"
 }
 ```
 
 ### Possíveis Erros:
 
-| Código do Erro   | Descrição           |
-| ---------------- | ------------------- |
-| 404 not found    | Pet não encontrado. |
-| 401 unauthorized | Sem autorizacao.    |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 not found    | Tutor não encontrado.              |
+| 404 not found    | Token de autenticação inexistente. |
+| 401 unauthorized | Token inválido.                    |
 
 ---
 
@@ -460,7 +469,10 @@ Vazio
 
 ### Possíveis Erros:
 
-Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -560,9 +572,11 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição       |
-| -------------- | --------------- |
-| 404 Not Found  | User not found. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Id nao encontrado.                 |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -600,9 +614,11 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição          |
-| -------------- | ------------------ |
-| 404 Not Found  | Id nao encontrado. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Id nao encontrado.                 |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -662,16 +678,18 @@ Content-type: application/json
 ```json
 {
   "id": "9cda28c9-e540-4b2c-bf0c-c90006d37893",
-  "reports": "Consulta de rotina",
-  "pet_id": "25"
+  "reports": "Consulta de rotina"
 }
 ```
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição                 |
-| -------------- | ------------------------- |
-| 404 Not Found  | Id do pet nao encontrado. |
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 Not Found    | Pet nao encontrado.                                   |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -714,7 +732,11 @@ Vazio
 
 ### Possíveis Erros:
 
-Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ### 3.3. **Atualizando dados de laudos**
 
@@ -735,8 +757,7 @@ Content-type: application/json
 
 ```json
 {
-  "reports": "Consulta de rotina, animal volta semana que vem pro retorno de vacina",
-  "pet_id": "25"
+  "reports": "Consulta de rotina, animal volta semana que vem pro retorno de vacina"
 }
 ```
 
@@ -749,16 +770,18 @@ Content-type: application/json
 ```json
 {
   "id": "9cda28c9-e540-4b2c-bf0c-c90006d37893",
-  "reports": "Consulta de rotina, animal volta semana que vem pro retorno de vacina",
-  "pet_id": "25"
+  "reports": "Consulta de rotina, animal volta semana que vem pro retorno de vacina"
 }
 ```
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição                   |
-| -------------- | --------------------------- |
-| 404 Not Found  | Id do laudo nao encontrado. |
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 Not Found    | Nenhum relatório com esse id.                         |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -795,9 +818,12 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição                   |
-| -------------- | --------------------------- |
-| 404 Not Found  | Id do laudo nao encontrado. |
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 Not Found    | Nenhum relatório com esse id.                         |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -867,9 +893,11 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro  | Descrição              |
-| --------------- | ---------------------- |
-| 400 bad request | Serviço ja cadastrado. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 400 bad request  | Serviço ja cadastrado.             |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -913,7 +941,10 @@ Vazio
 
 ### Possíveis Erros:
 
-Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -959,9 +990,11 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro  | Descrição              |
-| --------------- | ---------------------- |
-| 400 bad request | Serviço ja cadastrado. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 400 bad request  | Serviço ja cadastrado.             |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -994,9 +1027,11 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição              |
-| -------------- | ---------------------- |
-| 404 not found  | Serviço nao existente. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 not found    | Serviço nao existente.             |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -1135,9 +1170,12 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição          |
-| -------------- | ------------------ |
-| 409 conflict   | Usuario ja existe. |
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 409 conflict     | Usuario ja existe.                                    |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -1181,7 +1219,11 @@ Vazio
 
 ### Possíveis Erros:
 
-Nenhum, o máximo que pode acontecer é retornar uma lista vazia.
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -1227,9 +1269,12 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição              |
-| -------------- | ---------------------- |
-| 404 not found  | Usuario nao encontrado |
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 not found    | Usuario nao encontrado                                |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -1262,9 +1307,12 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição               |
-| -------------- | ----------------------- |
-| 404 not found  | Usuario nao encontrado. |
+| Código do Erro   | Descrição                                             |
+| ---------------- | ----------------------------------------------------- |
+| 404 not found    | Usuario nao encontrado.                               |
+| 404 Not Found    | Token de autenticação inexistente.                    |
+| 401 Unauthorized | Token inválido.                                       |
+| 401 Unauthorized | Acesso negado (condição de Administrador necessária). |
 
 ---
 
@@ -1341,10 +1389,12 @@ Content-type: application/json
 
 ### Possíveis Erros:
 
-| Código do Erro  | Descrição                         |
-| --------------- | --------------------------------- |
-| 404 bad request | Pet nao encontrado.               |
-| 404 bad request | Lista de serviços nao encontrado. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 Not Found    | Pet nao encontrado.                |
+| 404 Not Found    | Lista de serviços nao encontrado.  |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
 
@@ -1377,8 +1427,14 @@ Vazio
 
 ### Possíveis Erros:
 
-| Código do Erro | Descrição            |
-| -------------- | -------------------- |
-| 404 not found  | Lista nao existente. |
+| Código do Erro   | Descrição                          |
+| ---------------- | ---------------------------------- |
+| 404 not found    | Lista nao existente.               |
+| 404 Not Found    | Token de autenticação inexistente. |
+| 401 Unauthorized | Token inválido.                    |
 
 ---
+
+## 6. Erro no teste
+
+Todas as rotas foram testadas com testes de integração, porém na rota de service_list, um bug conhecido do SQLite3 impede que as tabelas se conectem, gerando um erro em cascata apenas naquela rota. Portanto, optamos por tirar o teste dessa rota em específico, mas nosso time de Quality Assurance testou as rotas manualmente via Insomnia, garantindo que está funcionando conforme o esperado.
